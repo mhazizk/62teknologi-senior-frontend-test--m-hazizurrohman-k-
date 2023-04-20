@@ -12,13 +12,13 @@ import SwiftUI
 struct SearchBar : View {
     
     @Binding var query:String
-    
-    func startSearch() -> Void {
-        return
-    }
+    @Binding var params:[String]
+    var onPressSearch:()->Void
     
     func clearQuery() -> Void {
-        return query = ""
+        params = defaultParams
+        query = ""
+        return
     }
     
     var body: some View{
@@ -27,20 +27,16 @@ struct SearchBar : View {
                 Image(systemName: "magnifyingglass")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 24, height: 24)
+                    .frame(width: 20, height: 20)
                     .padding()
-                TextField("Search places...",
-                          text: $query)
-                {
-                    
-                }
-                .frame(height: 48)
+                TextField("Search places...", text: $query, onCommit:onPressSearch)
                 .autocorrectionDisabled()
+                .submitLabel(.search)
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.gray, lineWidth: 2)
-                    .scaleEffect(x: !query.isEmpty ? 1.0 : 1.0, y: 1.0, anchor: .leading)
+                    .stroke(.secondary, lineWidth: 2)
+                    .scaleEffect(x: 1.0, y: 1.0, anchor: .leading)
                     .animation(.easeInOut(duration: 0.3), value: !query.isEmpty)
             )
             
@@ -48,7 +44,7 @@ struct SearchBar : View {
                 Button(action: clearQuery) {
                     Image(systemName: "xmark")
                         .foregroundColor(.red)
-                        .frame(width: 24, height: 24)
+                        .frame(width: 20, height: 20)
                         .aspectRatio(contentMode: .fit)
                         .padding()
                 }
@@ -59,10 +55,12 @@ struct SearchBar : View {
 }
 
 
-struct SearchBar_Preview : PreviewProvider {
-    
-    static var previews : some View {
-        @State var query:String = ""
-        SearchBar(query: $query)
-    }
-}
+//struct SearchBar_Preview : PreviewProvider {
+//
+//    static var previews : some View {
+//        @State var query:String = ""
+//        @State var params:[String] = []
+//
+//        SearchBar(query: $query, params: $params)
+//    }
+//}
