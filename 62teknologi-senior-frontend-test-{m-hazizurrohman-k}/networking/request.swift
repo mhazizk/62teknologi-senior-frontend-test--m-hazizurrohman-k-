@@ -12,10 +12,10 @@ enum BaseURLOptions {
     case getBusinessById
 }
 
-func request(_ baseURLOptions:BaseURLOptions, params:[String], businessId:String) -> NSMutableURLRequest {
+func request(_ baseURLOptions:BaseURLOptions, params:[String], businessId:String) -> URLRequest {
     var baseURL : String = ""
     var paramsStringified : String = ""
-    let completeURL = "\(baseURL)" + paramsStringified
+    var completeURL:String = ""
     
     switch baseURLOptions {
     case .searchBusiness:
@@ -29,8 +29,7 @@ func request(_ baseURLOptions:BaseURLOptions, params:[String], businessId:String
             paramsStringified = businessId
         }
     }
-    
-    print(completeURL)
+    completeURL = baseURL + paramsStringified
     
     let headers = [
         "accept": "application/json",
@@ -43,5 +42,5 @@ func request(_ baseURLOptions:BaseURLOptions, params:[String], businessId:String
     request.httpMethod = "GET"
     request.allHTTPHeaderFields = headers
     
-    return request
+    return request as URLRequest
 }
