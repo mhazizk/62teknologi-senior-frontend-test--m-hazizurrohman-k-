@@ -9,35 +9,39 @@ import Foundation
 
 struct BusinessDetailsType: Codable {
     let alias: String
-    let categories: [CategoryType]
-    let coordinates: CoordinatesType
-    let displayPhone: String?
-    let distance: Double
+    let categories: [CategoryType]?
+    let coordinates: CoordinatesType?
+    let display_phone: String?
+    let distance: Double?
     let id: String
-    let imageUrl: String
-    let isClaimed: Bool?
-    let isClosed: Bool
-    let dateOpened: String?
-    let dateClosed: String?
-    let location: LocationDetailsType
+    let image_url: String
+    let is_claimed: Bool?
+    let is_closed: Bool
+    let date_opened: String?
+    let date_closed: String?
+    let location: LocationDetailsType?
     let name: String
     let phone: String?
     let photos: [String]
-    let photoDetails: [PhotoDetailType]
-    let photoCount: Int
+    let photo_details: [PhotoDetailType]?
+    let photo_count: Int?
     let price: String?
+    let url:String?
+    let review_count:Int
+    let rating:Double
     
     enum CodingKeys: String, CodingKey {
         case alias, categories, coordinates
-        case displayPhone = "display_phone"
-        case distance, id, imageUrl = "image_url"
-        case isClaimed = "is_claimed"
-        case isClosed = "is_closed"
-        case dateOpened = "date_opened"
-        case dateClosed = "date_closed"
+        case display_phone = "display_phone"
+        case distance, id, image_url
+        case is_claimed = "is_claimed"
+        case is_closed = "is_closed"
+        case date_opened = "date_opened"
+        case date_closed = "date_closed"
         case location, name, phone, photos
-        case photoDetails = "photo_details"
-        case photoCount = "photo_count"
+        case photo_details = "photo_details"
+        case photo_count = "photo_count"
         case price
+        case url, rating, review_count 
     }
 }
