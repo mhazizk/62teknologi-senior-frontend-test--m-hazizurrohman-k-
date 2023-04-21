@@ -9,12 +9,54 @@ import Foundation
 import SwiftUI
 
 struct BusinessDetailsScreen : View {
+    @State var isLoading : Bool = false
+    //    @State var isFetched : Bool = false
+    @State var businessDetailsData : BusinessDetailsType? = nil
     var business : BusinessType
+    
+    
     var body: some View {
-        VStack{
-            Text(business.name)
-            Text("Business Details")
+        
+        VStack (alignment: .leading){
+            if isLoading {
+                Spacer()
+                ProgressView("Searching...")
+                Spacer()
+            } else {
+                if businessDetailsData != nil {
+                    Header(business: businessDetailsData!)
+                    ScrollView(.vertical) {
+                        HStack(spacing: 8) {
+                            Text(businessDetailsData?.price ?? "$")
+                            Text("•")
+                            MapCategories(categories: businessDetailsData?.categories ?? [])
+                            Spacer()
+                        }
+                        .padding(.horizontal,16)
+                        .padding(.top,16)
+                        HStack(spacing: 4) {
+                            if business.isClosed {
+                                Pill(name: "Closed", color: .red, font: .body.bold())
+                            } else {
+                                Pill(name: "Open", color: .green, font: .body.bold())
+                            }
+                            Spacer()
+                        }.padding(.horizontal,16)
+                        Spacer()
+                    }
+                }
+            }
+            
         }
+        .onAppear(){
+            if businessDetailsData == nil {
+                print("test")
+                getBusinessById(isLoading: $isLoading,
+                                businessId: business.id,
+                                data: $businessDetailsData)
+            }
+        }
+        .edgesIgnoringSafeArea(.top)
     }
 }
 
