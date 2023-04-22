@@ -50,6 +50,9 @@
 		F6D82DB129F2F58D0013FADA /* Pill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DB029F2F58D0013FADA /* Pill.swift */; };
 		F6D82DB629F2F66E0013FADA /* MapCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DB529F2F66E0013FADA /* MapCategories.swift */; };
 		F6D82DB829F2FD690013FADA /* IsOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DB729F2FD690013FADA /* IsOpen.swift */; };
+		F6D82DBA29F42A4D0013FADA /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DB929F42A4D0013FADA /* IconButton.swift */; };
+		F6D82DBD29F42D350013FADA /* ActionBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DBC29F42D350013FADA /* ActionBar.swift */; };
+		F6D82DBF29F4321E0013FADA /* InfoDetailsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DBE29F4321E0013FADA /* InfoDetailsSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +119,9 @@
 		F6D82DB029F2F58D0013FADA /* Pill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pill.swift; sourceTree = "<group>"; };
 		F6D82DB529F2F66E0013FADA /* MapCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCategories.swift; sourceTree = "<group>"; };
 		F6D82DB729F2FD690013FADA /* IsOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsOpen.swift; sourceTree = "<group>"; };
+		F6D82DB929F42A4D0013FADA /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		F6D82DBC29F42D350013FADA /* ActionBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionBar.swift; sourceTree = "<group>"; };
+		F6D82DBE29F4321E0013FADA /* InfoDetailsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDetailsSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +298,7 @@
 				F62FC0E729EED16800A40976 /* SearchBar.swift */,
 				F6D82DB029F2F58D0013FADA /* Pill.swift */,
 				F6D82DB729F2FD690013FADA /* IsOpen.swift */,
+				F6D82DB929F42A4D0013FADA /* IconButton.swift */,
 			);
 			path = low;
 			sourceTree = "<group>";
@@ -302,6 +309,7 @@
 				F64D125429F030BC00078DBB /* FilterBar.swift */,
 				F6D82DAC29F2E1710013FADA /* ImageCarousel.swift */,
 				F6D82DB529F2F66E0013FADA /* MapCategories.swift */,
+				F6D82DBC29F42D350013FADA /* ActionBar.swift */,
 			);
 			path = middle;
 			sourceTree = "<group>";
@@ -311,6 +319,7 @@
 			children = (
 				F6D82DAE29F2EC480013FADA /* Header.swift */,
 				F64D125029F01BE700078DBB /* BusinessList.swift */,
+				F6D82DBE29F4321E0013FADA /* InfoDetailsSection.swift */,
 			);
 			path = high;
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 				F62FC0E429EED0B300A40976 /* BusinessDetailsScreen.swift in Sources */,
 				F62FC0E229EED09B00A40976 /* SearchScreen.swift in Sources */,
 				F6D82DA929F2C5F60013FADA /* urlSessionExtension.swift in Sources */,
+				F6D82DBA29F42A4D0013FADA /* IconButton.swift in Sources */,
 				F62FC10729EFD6D900A40976 /* businessType.swift in Sources */,
 				F62FC11729EFD8D000A40976 /* RootNavigation.swift in Sources */,
 				F62FC10129EFD68000A40976 /* photoDetailType.swift in Sources */,
@@ -468,6 +478,7 @@
 				F62FC10329EFD69800A40976 /* locationType.swift in Sources */,
 				F64D125529F030BC00078DBB /* FilterBar.swift in Sources */,
 				F64D125129F01BE700078DBB /* BusinessList.swift in Sources */,
+				F6D82DBD29F42D350013FADA /* ActionBar.swift in Sources */,
 				F64D125929F0482000078DBB /* RadioOption.swift in Sources */,
 				F647EAB629F2BD9E000C69A8 /* addStringToParams.swift in Sources */,
 				F62FC0FD29EFD40C00A40976 /* businessSearchResultType.swift in Sources */,
@@ -481,6 +492,7 @@
 				F6D82DB829F2FD690013FADA /* IsOpen.swift in Sources */,
 				F6D82DA529F2C5620013FADA /* searchBusiness.swift in Sources */,
 				F6D82DA729F2C5960013FADA /* defaultParams.swift in Sources */,
+				F6D82DBF29F4321E0013FADA /* InfoDetailsSection.swift in Sources */,
 				F62FC0E829EED16800A40976 /* SearchBar.swift in Sources */,
 				F6D82DAB29F2C7E00013FADA /* getBusinessById.swift in Sources */,
 			);
