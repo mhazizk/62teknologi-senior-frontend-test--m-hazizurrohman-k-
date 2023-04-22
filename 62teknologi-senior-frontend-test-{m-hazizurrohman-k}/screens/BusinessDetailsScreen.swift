@@ -41,7 +41,11 @@ struct BusinessDetailsScreen : View {
                                 Pill(name: "Open", color: .green, font: .body.bold())
                             }
                             Spacer()
-                        }.padding(.horizontal,16)
+                        }
+                            .padding(.horizontal,16)
+                        ActionBar(business: businessDetailsData!)
+                        Color.gray.opacity(0.2).frame(height: 10)
+                        InfoDetailsSection(business: businessDetailsData!)
                         Spacer()
                     }
                 }
