@@ -18,7 +18,7 @@ func Header(business:BusinessDetailsType) -> some View {
                     
                     Spacer()
                     Text(business.name).bold().foregroundColor(.white).font(.largeTitle)
-                    HStack (spacing: 4){
+                    HStack (alignment: .center, spacing: 4){
                         getStarImage(rating: business.rating)
                         Text(String(business.review_count)).bold().foregroundColor(.white)
                     }
