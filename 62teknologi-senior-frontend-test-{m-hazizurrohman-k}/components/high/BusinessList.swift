@@ -55,7 +55,7 @@ struct BusinessList : View {
                                 
                                 Text(String(business.name)).bold()
                                     .lineLimit(1, reservesSpace: false)
-                                getStarImage(rating: business.rating)
+                                MapStarImage(rating: business.rating)
                                 Text(String(business.reviewCount) + " reviews").font(.footnote)
                                 MapCategories(categories: business.categories)
                             
