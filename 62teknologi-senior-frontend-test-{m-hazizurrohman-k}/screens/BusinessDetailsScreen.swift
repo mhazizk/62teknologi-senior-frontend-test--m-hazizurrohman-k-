@@ -8,10 +8,15 @@
 import Foundation
 import SwiftUI
 
+func isDataAvailable(business:BusinessDetailsType?, reviews: BusinessReviewsType?) -> Bool {
+    return business != nil && reviews != nil
+}
+
 struct BusinessDetailsScreen : View {
     @State var isLoading : Bool = false
     //    @State var isFetched : Bool = false
     @State var businessDetailsData : BusinessDetailsType? = nil
+    @State var businessReviewsData : BusinessReviewsType? = nil
     var business : BusinessType
     
     
@@ -23,7 +28,7 @@ struct BusinessDetailsScreen : View {
                 ProgressView("Searching...")
                 Spacer()
             } else {
-                if businessDetailsData != nil {
+                if isDataAvailable(business: businessDetailsData, reviews: businessReviewsData) {
                     Header(business: businessDetailsData!)
                     ScrollView(.vertical) {
                         HStack(spacing: 8) {
@@ -46,6 +51,8 @@ struct BusinessDetailsScreen : View {
                         ActionBar(business: businessDetailsData!)
                         Color.gray.opacity(0.2).frame(height: 10)
                         InfoDetailsSection(business: businessDetailsData!)
+                        Color.gray.opacity(0.2).frame(height: 10)
+                        ReviewSection(reviews: businessReviewsData!.reviews)
                         Spacer()
                     }
                 }
@@ -54,10 +61,10 @@ struct BusinessDetailsScreen : View {
         }
         .onAppear(){
             if businessDetailsData == nil {
-                print("test")
                 getBusinessById(isLoading: $isLoading,
                                 businessId: business.id,
                                 data: $businessDetailsData)
+                getBusinessReviewsById(isLoading: $isLoading, businessId: business.id, data: $businessReviewsData)
             }
         }
         .edgesIgnoringSafeArea(.top)
