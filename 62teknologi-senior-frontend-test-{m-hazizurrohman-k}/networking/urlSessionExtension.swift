@@ -12,7 +12,7 @@ extension URLSession {
     /**
      `getAllBusiness` will asynchronously call Yelp endpoint and return complete list of the available business from yelp within first `20` list
      */
-    func getAllBusiness(at request: URLRequest, completion: @escaping (Result<BusinessSearchResultType, Error>) -> Void) {
+    func getAllBusiness(request: URLRequest, completion: @escaping (Result<BusinessSearchResultType, Error>) -> Void) {
         self.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
@@ -32,7 +32,7 @@ extension URLSession {
     /**
      `getBusinessById` will asynchronously call Yelp endpoint and return business details from the given `id`
      */
-    func getBusinessById(at request: URLRequest, completion: @escaping (Result<BusinessDetailsType, Error>) -> Void) {
+    func getBusinessById(request: URLRequest, completion: @escaping (Result<BusinessDetailsType, Error>) -> Void) {
         self.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
@@ -47,4 +47,25 @@ extension URLSession {
             }
         }.resume()
     }
+    
+    /**
+     `getBusinessReviewsById` will asynchronously call Yelp endpoint and return top 3 reviews from the given business id
+     */
+    func getBusinessReviewsById(request:URLRequest, completion: @escaping (Result<BusinessReviewsType, Error>)->Void) {
+        self.dataTask(with: request) {
+            (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+            }
+            if let data = data {
+                do {
+                    let results = try JSONDecoder().decode(BusinessReviewsType.self, from: data)
+                    completion(.success(results))
+                } catch let decodeError {
+                    completion(.failure(decodeError))
+                }
+            }
+        }.resume()
+    }
+
 }
