@@ -20,7 +20,7 @@ func getBusinessById(
         
         let req = request(BaseURLOptions.getBusinessById, params: [], businessId: businessId)
         
-        URLSession.shared.getBusinessById(at: req, completion: {
+        URLSession.shared.getBusinessById(request: req, completion: {
             result in
             switch result {
             case .success(let fetched):
