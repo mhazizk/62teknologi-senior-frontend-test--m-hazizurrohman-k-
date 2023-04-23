@@ -10,6 +10,7 @@ import Foundation
 enum BaseURLOptions {
     case searchBusiness
     case getBusinessById
+    case getBusinessReviewsById
 }
 
 func request(_ baseURLOptions:BaseURLOptions, params:[String], businessId:String) -> URLRequest {
@@ -28,7 +29,13 @@ func request(_ baseURLOptions:BaseURLOptions, params:[String], businessId:String
         if !businessId.isEmpty {
             paramsStringified = businessId
         }
+    case .getBusinessReviewsById:
+        baseURL = endpoints["getBusinessById"]!
+        if !businessId.isEmpty {
+            paramsStringified = businessId + "/reviews"
+        }
     }
+        
     completeURL = baseURL + paramsStringified
     
     let headers = [
