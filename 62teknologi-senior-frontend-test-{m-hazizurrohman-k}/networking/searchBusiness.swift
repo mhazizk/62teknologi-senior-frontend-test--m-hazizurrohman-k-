@@ -14,7 +14,7 @@ func searchBusiness(isLoading: Binding<Bool>,isFetched:Binding<Bool>, data: Bind
     isFetched.wrappedValue = false
     let req = request(BaseURLOptions.searchBusiness, params: params, businessId: "nil")
     
-    URLSession.shared.getAllBusiness(at: req, completion: {
+    URLSession.shared.getAllBusiness(request: req, completion: {
         result in
         switch result {
         case .success(let fetched):
