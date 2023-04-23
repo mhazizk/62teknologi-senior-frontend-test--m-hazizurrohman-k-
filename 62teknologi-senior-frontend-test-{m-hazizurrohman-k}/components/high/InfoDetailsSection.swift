@@ -42,10 +42,7 @@ func InfoDetailsSection(business:BusinessDetailsType) -> some View {
         }
         
         Color.gray.opacity(0.2).frame(height: 1).padding(.vertical,16)
-        Text("Website")
-            .bold()
-            .font(.subheadline)
-        Text(business.url!)
+
         
     }
     .padding(16)
