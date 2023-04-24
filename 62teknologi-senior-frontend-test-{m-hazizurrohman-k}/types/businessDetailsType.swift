@@ -29,6 +29,7 @@ struct BusinessDetailsType: Codable {
     let url:String?
     let review_count:Int
     let rating:Double
+    let hours: [HoursType]?
     
     enum CodingKeys: String, CodingKey {
         case alias, categories, coordinates
@@ -42,6 +43,6 @@ struct BusinessDetailsType: Codable {
         case photo_details = "photo_details"
         case photo_count = "photo_count"
         case price
-        case url, rating, review_count 
+        case url, rating, review_count, hours
     }
 }
