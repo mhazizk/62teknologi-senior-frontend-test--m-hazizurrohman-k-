@@ -29,9 +29,9 @@ struct BusinessDetailsScreen : View {
                 Spacer()
             } else {
                 if isDataAvailable(business: businessDetailsData, reviews: businessReviewsData) {
-                    Header(business: businessDetailsData!)
+                    HeaderSection(distance:business.distance,business: businessDetailsData!)
                     ScrollView(.vertical) {
-                        HStack(spacing: 8) {
+                        HStack(alignment: .center,spacing: 8) {
                             Text(businessDetailsData?.price ?? "$")
                             Text("•")
                             MapCategories(categories: businessDetailsData?.categories ?? [])
@@ -39,15 +39,21 @@ struct BusinessDetailsScreen : View {
                         }
                         .padding(.horizontal,16)
                         .padding(.top,16)
-                        HStack(spacing: 4) {
-                            if business.isClosed {
-                                Pill(name: "Closed", color: .red, font: .body.bold())
-                            } else {
-                                Pill(name: "Open", color: .green, font: .body.bold())
-                            }
-                            Spacer()
+                        if businessDetailsData?.hours != nil {
+                            OpenSchedule(schedule: businessDetailsData!.hours![0].open,
+                                         isOpenNow: businessDetailsData!.hours![0].is_open_now
+                            )
+                        } else {
+                            HStack{
+                                if business.isClosed {
+                                    Pill(name: "Closed", color: .red, font: .body.bold())
+                                } else {
+                                    Pill(name: "Open", color: .green, font: .body.bold())
+                                }
+                                Spacer()
+                            }.padding(.horizontal,16)
                         }
-                            .padding(.horizontal,16)
+                        Color.gray.opacity(0.2).frame(height: 1)
                         ActionBar(business: businessDetailsData!)
                         Color.gray.opacity(0.2).frame(height: 10)
                         InfoDetailsSection(business: businessDetailsData!)
