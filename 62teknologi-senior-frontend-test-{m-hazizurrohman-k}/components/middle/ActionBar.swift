@@ -14,16 +14,27 @@ func ActionBar(business:BusinessDetailsType) -> some View {
     let map = business.location?.address1
 //    let menu = business
     
-    func onPress() -> Void {
+    
+    func openWeb() -> Void {
+        guard let url = URL(string: business.url!) else {return}
+        return UIApplication.shared.open(url)
+    }
+
+    func openMap() -> Void {
         return
+    }
+
+    func call() -> Void {
+        guard let url = URL(string: "tel:\(business.phone!)") else { return }
+        return UIApplication.shared.open(url)
     }
     
     return HStack(spacing: 16) {
         Spacer()
-        IconButton(iconName: .phone, onPress: onPress)
-        IconButton(iconName: .map, onPress: onPress)
-        IconButton(iconName: .globe, onPress: onPress)
-        IconButton(iconName: .menucard, onPress: onPress)
+        IconButton(iconName: .phone, onPress: call)
+        IconButton(iconName: .map, onPress: openMap)
+        IconButton(iconName: .globe, onPress: openWeb)
+        IconButton(iconName: .menucard, onPress: openMap)
         Spacer()
     }
     .padding(16)
