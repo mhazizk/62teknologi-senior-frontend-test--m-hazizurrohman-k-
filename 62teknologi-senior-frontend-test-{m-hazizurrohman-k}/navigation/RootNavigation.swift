@@ -11,6 +11,7 @@ import SwiftUI
 struct RootNavigation: View {
     init() {
         UITabBar.appearance().barTintColor = UIColor.black
+//        UITabBar.appearance().bar
     }
     var body: some View {
         NavigationView {
@@ -20,12 +21,12 @@ struct RootNavigation: View {
                         Image(systemName: "magnifyingglass")
                         Text("Search")
                     }
-                FavoriteScreen()
+                CollectionScreen()
                     .tabItem {
-                        Image(systemName: "star")
-                        Text("Favorite")
+                        Image(systemName: "bookmark.fill")
+                        Text("Collections")
                     }
-            }
+            }.accentColor(.red)
         }
     }
 }
