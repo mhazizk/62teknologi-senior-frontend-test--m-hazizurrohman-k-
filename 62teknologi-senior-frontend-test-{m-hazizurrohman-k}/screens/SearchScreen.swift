@@ -42,7 +42,7 @@ struct SearchScreen : View {
                 ProgressView("Searching...")
                 Spacer()
             } else {
-                BusinessList(businesses: $data, params: params)
+                BusinessListSection(businesses: $data, params: params)
             }
         }
         .onAppear(){
