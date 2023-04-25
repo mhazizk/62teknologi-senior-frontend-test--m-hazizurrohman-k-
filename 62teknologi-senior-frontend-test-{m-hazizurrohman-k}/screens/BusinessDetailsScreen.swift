@@ -14,7 +14,6 @@ func isDataAvailable(business:BusinessDetailsType?, reviews: BusinessReviewsType
 
 struct BusinessDetailsScreen : View {
     @State var isLoading : Bool = false
-    //    @State var isFetched : Bool = false
     @State var businessDetailsData : BusinessDetailsType? = nil
     @State var businessReviewsData : BusinessReviewsType? = nil
     var business : BusinessType
@@ -43,15 +42,6 @@ struct BusinessDetailsScreen : View {
                             OpenSchedule(schedule: businessDetailsData!.hours![0].open,
                                          isOpenNow: businessDetailsData!.hours![0].is_open_now
                             )
-                        } else {
-                            HStack{
-                                if business.isClosed {
-                                    Pill(name: "Closed", color: .red, font: .body.bold())
-                                } else {
-                                    Pill(name: "Open", color: .green, font: .body.bold())
-                                }
-                                Spacer()
-                            }.padding(.horizontal,16)
                         }
                         Color.gray.opacity(0.2).frame(height: 1)
                         ActionBar(business: businessDetailsData!)
