@@ -14,14 +14,25 @@ func Review(review:ReviewType) -> some View {
         HStack(alignment: .top) {
             VStack (alignment: .leading){
                 HStack(alignment: .top) {
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .foregroundColor(.black)
-                        .frame(width: 16, height: 16)
-                        .padding(12)
-                        .background(.gray.opacity(0.3))
-                        .clipShape(Circle())
+                    if review.user.image_url != nil {
+                        AsyncImage(url:URL(string: review.user.image_url!)) {
+                            image in
+                            image.image?.resizable()
+                            image.image?.aspectRatio(contentMode: .fill)
+                        }
+                            .frame(width: 16, height: 16)
+                            .padding(12)
+                            .clipShape(Circle())
+                    } else {
+                        Image(systemName: "person.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .foregroundColor(.black)
+                            .frame(width: 16, height: 16)
+                            .padding(12)
+                            .background(.gray.opacity(0.3))
+                            .clipShape(Circle())
+                    }
                     VStack (alignment: .leading){
                         Text(review.user.name)
                             .bold()
