@@ -10,7 +10,9 @@ import SwiftUI
 
 
 struct SearchBar : View {
-    
+    var placeholder : String
+    var iconName : String
+    var location : String?
     @Binding var query:String
     @Binding var params:[String]
     var onPressSearch:()->Void
@@ -24,22 +26,26 @@ struct SearchBar : View {
     var body: some View{
         HStack{
             HStack{
-                Image(systemName: "magnifyingglass")
+                Image(systemName: iconName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 20, height: 20)
                     .padding()
-                TextField("Search places...", text: $query, onCommit:onPressSearch)
+                TextField(placeholder, text: $query, onCommit:onPressSearch)
                 .autocorrectionDisabled()
                 .submitLabel(.search)
+                if location != nil {
+                    ZStack {
+                        Pill(name: location! ,color: .black,font: .subheadline)
+                            .padding(.trailing,16)
+                    }
+                }
             }
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(.secondary, lineWidth: 2)
-                    .scaleEffect(x: 1.0, y: 1.0, anchor: .leading)
-                    .animation(.easeInOut(duration: 0.3), value: !query.isEmpty)
-            )
-            
+            .background(.gray.opacity(0.2))
+            .cornerRadius(8)
+            .scaleEffect(x: 1.0, y: 1.0, anchor: .leading)
+            .animation(.easeInOut(duration: 0.3), value: !query.isEmpty)
+
             if !query.isEmpty {
                 Button(action: clearQuery) {
                     Image(systemName: "xmark")
@@ -50,7 +56,9 @@ struct SearchBar : View {
                 }
                 .animation(.easeInOut(duration: 0.3), value: !query.isEmpty)
             }
-        }.padding()
+        }
+        .padding(.horizontal,16)
+        .padding(.vertical,4)
     }
 }
 
