@@ -9,6 +9,6 @@ import Foundation
 
 func getTodaysDayOfTheWeekInt() -> Int {
     let calendar = Calendar.current
-    let dayOfWeek = calendar.component(.weekday, from: Date()) - 1
+    let dayOfWeek = (calendar.component(.weekday, from: Date()) + 5) % 7
     return dayOfWeek
 }
