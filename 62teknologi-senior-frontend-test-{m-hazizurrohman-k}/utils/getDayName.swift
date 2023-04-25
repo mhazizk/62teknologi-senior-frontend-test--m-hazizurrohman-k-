@@ -10,7 +10,7 @@ import Foundation
 func getDayName(num: Int) -> String? {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EEEE"
-    guard let date = Calendar.current.date(byAdding: .day, value: num, to: Date()) else {
+    guard let date = Calendar.current.date(byAdding: .day, value: (num + 6) % 7, to: Date()) else {
         return nil
     }
     return dateFormatter.string(from: date)
