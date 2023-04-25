@@ -30,7 +30,7 @@ func OpenSchedule(schedule:[DailyScheduleType],isOpenNow:Bool) -> some View {
     case false:
         render = AnyView( HStack {
             Pill(name: "Closed", color: .red, font: .subheadline.bold())
-            Text("Opens tomorrow at \(timeFormatter(time:tomorrowSchedule!.start))")
+            Text("Opens at \(timeFormatter(time:tomorrowSchedule!.start))")
                 .foregroundColor(.gray)
                 .font(.subheadline)
             Spacer()
