@@ -10,21 +10,19 @@ import SwiftUI
 
 struct InfoDetailsSection : View {
     var business:BusinessDetailsType
-    @State var showMoreHours = false
-    @State private var sheetContentHeight = CGFloat(0)
+    @State private var showMoreHours = false
+    @State private var sheetContentHeight = CGFloat(100)
     
-    var onPress: () -> Void {
-        return { showMoreHours.toggle() }
-    }
     
     var body: some View {
         VStack {
-            
+            // Info
             HStack {
                 Text("Info")
                     .bold()
                 Spacer()
             }
+            // Hours
             HStack{
                 VStack {
                     HStack {
@@ -32,26 +30,75 @@ struct InfoDetailsSection : View {
                             .bold()
                         Spacer()
                     }
-                    HStack(spacing: 4) {
-                        if business.is_closed {
-                            Pill(name: "Closed", color: .red)
-                        } else {
-                            Pill(name: "Open", color: .green)
-                        }
-                        Spacer()
+                    if business.hours != nil {
+                        OpenSchedule(schedule: business.hours![0].open,
+                                     isOpenNow: business.hours![0].is_open_now
+                        ).padding(.horizontal,-16)
+                    } else {
+                        HStack {
+                            Text("No data").foregroundColor(.gray)
+                            Spacer()
+                        }.padding(.top,16)
                     }
+                    
                 }
                 Spacer()
-                Button(action:onPress){
-                    HStack {
-                        Image(systemName: "list.bullet").frame(width: 20, height: 20)
-                        Text("More")
+                if business.hours != nil {
+                    Button(action:{
+                        showMoreHours = true
+                    }){
+                        HStack {
+                            Image(systemName: "list.bullet").frame(width: 20, height: 20)
+                            Text("More")
+                        }
+                    }
+                    .sheet(isPresented: $showMoreHours, onDismiss: {
+                        showMoreHours = false
+                    }) {
+                        VStack (spacing: 4){
+                            Text("Open hours").bold().padding(16)
+                            VStack {
+                                ForEach(0..<6) { i in
+                                    let firstScheduleOfDay = business.hours![0].open.first(where: {$0.day == i})
+                                    let filteredSchedule = business.hours![0].open.filter({$0.day == i})
+                                    let isSameDay = getTodaysDayOfTheWeekInt() == firstScheduleOfDay?.day
+                                    if (firstScheduleOfDay != nil) {
+                                        HStack (alignment: .center){
+                                            Text(getDayName(num:firstScheduleOfDay!.day)!).bold()
+                                            if isSameDay && business.hours![0].is_open_now {
+                                                Pill(name: "Open", color: .green)
+                                            }
+                                            Spacer()
+                                            VStack (alignment:.trailing){
+                                                ForEach(filteredSchedule, id:\.start) {
+                                                    schedule in
+                                                    Text("\(timeFormatter(time: schedule.start)) - \(timeFormatter(time:schedule.end))")
+                                                }
+                                            }
+                                        }.padding(.top,4)
+                                        Color.gray.opacity(0.2).frame(height: 1)
+                                    }
+                                }
+                            }
+                        }
+                        .padding(16)
+                        .background {
+                            GeometryReader { geometry in
+                                Color.clear
+                                    .onAppear {
+                                        sheetContentHeight = geometry.size.height
+                                    }
+                            }
+                        }
+                        .presentationDetents([.height(sheetContentHeight)])
                     }
                 }
                 
-            }
+            }.padding(.top,8)
             
             Color.gray.opacity(0.2).frame(height: 1).padding(.vertical,16)
+            
+            // Location
             HStack{
                 VStack {
                     HStack {
@@ -77,39 +124,37 @@ struct InfoDetailsSection : View {
                 
             }
             
+            Color.gray.opacity(0.2).frame(height: 1).padding(.vertical,16)
             
-        }
-        .padding(16)
-        .sheet(isPresented: $showMoreHours) {
-            VStack (spacing: 4){
-                Text("Open hours").bold().padding(16)
-                ForEach(business.hours![0].open, id:\.day) {
-                    hour in
-                    let isSameDay = getTodaysDayOfTheWeekInt() == hour.day
+            // Phone
+            HStack{
+                VStack {
                     HStack {
-                        Text(getDayName(num: hour.day)!).bold()
-                        if isSameDay && business.hours![0].is_open_now {
-                            Pill(name: "Open", color: .green)
-                        }
+                        Text("Phone")
+                            .bold()
                         Spacer()
-                        Text(timeFormatter(time:hour.start))
-                        Text("-")
-                        Text(timeFormatter(time:hour.end))
+                    }
+                    HStack {
+                        Text(business.display_phone!)
+                        Spacer()
+                    }.padding(.top,8)
+                }
+                Spacer()
+                Button(action: {
+                    call(number: business.phone!)
+                }) {
+                    HStack {
+                        Image(systemName: "phone").frame(width: 20, height: 20)
+                        Text("Call")
                     }
                     
                 }
+                
             }
-            .padding(16)
-            .background {
-                GeometryReader { geometry in
-                    Color.clear
-                        .onAppear {
-                            print("size = \(geometry.size.height)")
-                            sheetContentHeight = geometry.size.height
-                        }
-                }
-            }
-            .presentationDetents([.height(sheetContentHeight)])
+            
+            
         }
+        .padding(16)
+        
     }
 }
