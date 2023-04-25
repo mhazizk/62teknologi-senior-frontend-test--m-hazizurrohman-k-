@@ -17,7 +17,7 @@ enum IconName :String {
     
 }
 
-func IconButton(iconName:IconName, onPress: @escaping () -> Void) -> some View {
+func IconButton<Params>(iconName:IconName, onPress: @escaping (Params) -> Void) -> some View {
     let title :String
     switch iconName {
     case .map:
@@ -30,7 +30,7 @@ func IconButton(iconName:IconName, onPress: @escaping () -> Void) -> some View {
         title = "Call"
     }
     return VStack(spacing: 8) {
-        Button(action: onPress) {
+        Button(action: {onPress(Params.self as! Params)}) {
             Image(systemName: iconName.rawValue)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
