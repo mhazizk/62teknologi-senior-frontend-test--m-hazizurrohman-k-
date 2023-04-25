@@ -62,9 +62,13 @@ struct BusinessListSection : View {
                                     MapStarImage(rating: business.rating)
                                     Text(String(business.reviewCount)).font(.footnote)
                                 }
-                                Text(String(format: "%.1f", business.distance / 1000)+" km").font(.footnote).foregroundColor(.gray)
+                                HStack(spacing: 4) {
+                                    Text(business.price ?? "$").font(.footnote).foregroundColor(.gray)
+                                    Text("•").foregroundColor(.gray)
+                                    Text(String(format: "%.1f", business.distance / 1000)+" km").font(.footnote).foregroundColor(.gray)
+                                }
                                 MapCategories(categories: business.categories)
-                                    .padding(.top,-4)
+                                    .padding(.top,-8)
                             
                             }
                             .padding(.leading,4)
