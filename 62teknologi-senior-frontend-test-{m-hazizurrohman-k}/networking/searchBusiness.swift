@@ -9,7 +9,11 @@ import Foundation
 import SwiftUI
 
 
-func searchBusiness(isLoading: Binding<Bool>,isFetched:Binding<Bool>, data: Binding<[BusinessType]>, params: [String]) -> Void {
+func searchBusiness(
+    isLoading: Binding<Bool>,
+    isFetched:Binding<Bool>,
+    data: Binding<[BusinessType]>,
+    params: [String]) -> Void {
     isLoading.wrappedValue = true
     isFetched.wrappedValue = false
     let req = request(BaseURLOptions.searchBusiness, params: params, businessId: "nil")
@@ -23,8 +27,8 @@ func searchBusiness(isLoading: Binding<Bool>,isFetched:Binding<Bool>, data: Bind
             print(error)
         }
     })
-    isFetched.wrappedValue = true
-    isLoading.wrappedValue = false
+        isLoading.wrappedValue = false
+        isFetched.wrappedValue = true
     
     return
     
