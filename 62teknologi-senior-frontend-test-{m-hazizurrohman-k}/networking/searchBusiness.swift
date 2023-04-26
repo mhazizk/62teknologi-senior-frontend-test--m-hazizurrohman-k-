@@ -13,6 +13,9 @@ func searchBusiness(
     isLoading: Binding<Bool>,
     isFetched:Binding<Bool>,
     data: Binding<[BusinessType]>,
+//    initialOffset:Int,
+//    showingOfTotal : Binding<[Int]>,
+    totalFound: Binding<Int>,
     params: [String]) -> Void {
     isLoading.wrappedValue = true
     isFetched.wrappedValue = false
@@ -23,6 +26,9 @@ func searchBusiness(
         switch result {
         case .success(let fetched):
             data.wrappedValue = fetched.businesses
+//            let totalData = data.count
+//            showingOfTotal.wrappedValue = [totalData, fetched.total]
+            totalFound.wrappedValue = fetched.total
         case .failure(let error):
             print(error)
         }
