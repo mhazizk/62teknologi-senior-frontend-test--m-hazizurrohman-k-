@@ -37,7 +37,7 @@
 		F647EAB629F2BD9E000C69A8 /* addStringToParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = F647EAB529F2BD9E000C69A8 /* addStringToParams.swift */; };
 		F647EAB829F2BDC5000C69A8 /* isParamsChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = F647EAB729F2BDC5000C69A8 /* isParamsChanged.swift */; };
 		F64D125129F01BE700078DBB /* BusinessListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64D125029F01BE700078DBB /* BusinessListSection.swift */; };
-		F64D125529F030BC00078DBB /* FilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64D125429F030BC00078DBB /* FilterBar.swift */; };
+		F64D125529F030BC00078DBB /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64D125429F030BC00078DBB /* FilterButton.swift */; };
 		F64D125729F03BA700078DBB /* searchQueryParamsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64D125629F03BA700078DBB /* searchQueryParamsType.swift */; };
 		F64D125929F0482000078DBB /* RadioOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64D125829F0482000078DBB /* RadioOption.swift */; };
 		F64D125B29F052D600078DBB /* FilterPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64D125A29F052D600078DBB /* FilterPicker.swift */; };
@@ -48,6 +48,7 @@
 		F6A673EE29F68A2B00F24360 /* isBusinessOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673ED29F68A2B00F24360 /* isBusinessOpen.swift */; };
 		F6A673F029F68C6E00F24360 /* timeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673EF29F68C6E00F24360 /* timeFormatter.swift */; };
 		F6A673F229F6E17E00F24360 /* getDayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673F129F6E17D00F24360 /* getDayName.swift */; };
+		F6A673F429F98D0F00F24360 /* PaginationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673F329F98D0F00F24360 /* PaginationBar.swift */; };
 		F6D82DA529F2C5620013FADA /* searchBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DA429F2C5620013FADA /* searchBusiness.swift */; };
 		F6D82DA729F2C5960013FADA /* defaultParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DA629F2C5960013FADA /* defaultParams.swift */; };
 		F6D82DA929F2C5F60013FADA /* urlSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D82DA829F2C5F60013FADA /* urlSessionExtension.swift */; };
@@ -120,7 +121,7 @@
 		F647EAB529F2BD9E000C69A8 /* addStringToParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addStringToParams.swift; sourceTree = "<group>"; };
 		F647EAB729F2BDC5000C69A8 /* isParamsChanged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isParamsChanged.swift; sourceTree = "<group>"; };
 		F64D125029F01BE700078DBB /* BusinessListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessListSection.swift; sourceTree = "<group>"; };
-		F64D125429F030BC00078DBB /* FilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBar.swift; sourceTree = "<group>"; };
+		F64D125429F030BC00078DBB /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		F64D125629F03BA700078DBB /* searchQueryParamsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchQueryParamsType.swift; sourceTree = "<group>"; };
 		F64D125829F0482000078DBB /* RadioOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioOption.swift; sourceTree = "<group>"; };
 		F64D125A29F052D600078DBB /* FilterPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPicker.swift; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		F6A673ED29F68A2B00F24360 /* isBusinessOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isBusinessOpen.swift; sourceTree = "<group>"; };
 		F6A673EF29F68C6E00F24360 /* timeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeFormatter.swift; sourceTree = "<group>"; };
 		F6A673F129F6E17D00F24360 /* getDayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getDayName.swift; sourceTree = "<group>"; };
+		F6A673F329F98D0F00F24360 /* PaginationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationBar.swift; sourceTree = "<group>"; };
 		F6D82DA429F2C5620013FADA /* searchBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchBusiness.swift; sourceTree = "<group>"; };
 		F6D82DA629F2C5960013FADA /* defaultParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultParams.swift; sourceTree = "<group>"; };
 		F6D82DA829F2C5F60013FADA /* urlSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urlSessionExtension.swift; sourceTree = "<group>"; };
@@ -361,7 +363,8 @@
 				F64D125029F01BE700078DBB /* BusinessListSection.swift */,
 				F6D82DBE29F4321E0013FADA /* InfoDetailsSection.swift */,
 				F6D82DC029F57FC60013FADA /* ReviewSection.swift */,
-				F64D125429F030BC00078DBB /* FilterBar.swift */,
+				F64D125429F030BC00078DBB /* FilterButton.swift */,
+				F6A673F329F98D0F00F24360 /* PaginationBar.swift */,
 			);
 			path = high;
 			sourceTree = "<group>";
@@ -523,7 +526,7 @@
 				F6D82DAD29F2E1710013FADA /* ImageCarousel.swift in Sources */,
 				F647EAB829F2BDC5000C69A8 /* isParamsChanged.swift in Sources */,
 				F62FC10329EFD69800A40976 /* locationType.swift in Sources */,
-				F64D125529F030BC00078DBB /* FilterBar.swift in Sources */,
+				F64D125529F030BC00078DBB /* FilterButton.swift in Sources */,
 				F6D82DCE29F590140013FADA /* getRelativeDateString.swift in Sources */,
 				F6D82DC129F57FC60013FADA /* ReviewSection.swift in Sources */,
 				F64D125129F01BE700078DBB /* BusinessListSection.swift in Sources */,
@@ -549,6 +552,7 @@
 				F6A673EC29F6888F00F24360 /* dailyScheduleType.swift in Sources */,
 				F6D82DBF29F4321E0013FADA /* InfoDetailsSection.swift in Sources */,
 				F62FC0E829EED16800A40976 /* SearchBar.swift in Sources */,
+				F6A673F429F98D0F00F24360 /* PaginationBar.swift in Sources */,
 				F6D82DAB29F2C7E00013FADA /* getBusinessById.swift in Sources */,
 				F6A673F029F68C6E00F24360 /* timeFormatter.swift in Sources */,
 			);
