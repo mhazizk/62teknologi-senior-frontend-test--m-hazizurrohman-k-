@@ -26,57 +26,61 @@ struct BusinessListSection : View {
                     Spacer()
                 }
             } else {
-                List(businesses) { business in
-                    NavigationLink(destination: BusinessDetailsScreen(business: business)) {
-                        HStack (alignment: .top){
-                            VStack {
-                                
-                                if !business.imageUrl.isEmpty {
-                                    AsyncImage(url: URL(string: business.imageUrl)){
-                                        image in
-                                        image.resizable()
-                                        image.scaledToFit()
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    .frame(width: 86, height: 86)
-                                    .cornerRadius(8)
-                                    
-                                    
-                                } else {
-                                    ZStack {
-                                        Text("No image").font(.footnote)
-                                        Rectangle()
-                                            .fill(Color.gray.opacity(0.5))
+                ScrollViewReader {
+                    proxy in
+                    List {
+                        ForEach (businesses, id:\.id) {
+                            business in
+                            NavigationLink(destination: BusinessDetailsScreen(business: business)) {
+                                HStack (alignment: .top){
+                                    VStack {
+                                        
+                                        if !business.imageUrl.isEmpty {
+                                            AsyncImage(url: URL(string: business.imageUrl)){
+                                                image in
+                                                image.resizable()
+                                                image.scaledToFit()
+                                            } placeholder: {
+                                                ProgressView()
+                                            }
                                             .frame(width: 86, height: 86)
                                             .cornerRadius(8)
+                                            
+                                            
+                                        } else {
+                                            ZStack {
+                                                Text("No image").font(.footnote)
+                                                Rectangle()
+                                                    .fill(Color.gray.opacity(0.5))
+                                                    .frame(width: 86, height: 86)
+                                                    .cornerRadius(8)
+                                            }
+                                        }
                                     }
+                                    VStack(alignment: .leading){
+                                        
+                                        Text(String(business.name)).bold()
+                                            .lineLimit(1, reservesSpace: false)
+                                        HStack(alignment: .bottom,spacing: 4) {
+                                            
+                                            MapStarImage(rating: business.rating)
+                                            Text(String(business.reviewCount)).font(.footnote)
+                                        }
+                                        HStack(spacing: 4) {
+                                            Text(business.price ?? "$").font(.footnote).foregroundColor(.gray)
+                                            Text("•").foregroundColor(.gray)
+                                            Text(String(format: "%.1f", business.distance / 1000)+" km").font(.footnote).foregroundColor(.gray)
+                                        }
+                                        MapCategories(categories: business.categories)
+                                            .padding(.top,-8)
+                                        
+                                    }
+                                    .padding(.leading,4)
                                 }
                             }
-                            VStack(alignment: .leading){
-                                
-                                Text(String(business.name)).bold()
-                                    .lineLimit(1, reservesSpace: false)
-                                HStack(alignment: .bottom,spacing: 4) {
-                                    
-                                    MapStarImage(rating: business.rating)
-                                    Text(String(business.reviewCount)).font(.footnote)
-                                }
-                                HStack(spacing: 4) {
-                                    Text(business.price ?? "$").font(.footnote).foregroundColor(.gray)
-                                    Text("•").foregroundColor(.gray)
-                                    Text(String(format: "%.1f", business.distance / 1000)+" km").font(.footnote).foregroundColor(.gray)
-                                }
-                                MapCategories(categories: business.categories)
-                                    .padding(.top,-8)
-                            
-                            }
-                            .padding(.leading,4)
-                            Spacer()
                         }
                     }
                 }
-                
             }
         }
     }
