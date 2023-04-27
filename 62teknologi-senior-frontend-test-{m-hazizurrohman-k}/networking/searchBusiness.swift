@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-
+/**
+ wrapper of `URL session` to search business with provided query and params
+ */
 func searchBusiness(
     isLoading: Binding<Bool>,
     isFetched:Binding<Bool>,
@@ -26,10 +28,10 @@ func searchBusiness(
         switch result {
         case .success(let fetched):
             data.wrappedValue = fetched.businesses
-//            let totalData = data.count
-//            showingOfTotal.wrappedValue = [totalData, fetched.total]
             totalFound.wrappedValue = fetched.total
         case .failure(let error):
+            data.wrappedValue = []
+            totalFound.wrappedValue = 0
             print(error)
         }
     })
