@@ -7,7 +7,9 @@
 
 import Foundation
 
-
+/**
+ endpoints of yelp
+ */
 let endpoints = [
     "searchBusiness" : "https://api.yelp.com/v3/businesses/search",
     "getBusinessById" : "https://api.yelp.com/v3/businesses/",
