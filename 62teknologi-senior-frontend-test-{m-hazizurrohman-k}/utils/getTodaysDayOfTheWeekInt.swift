@@ -7,8 +7,14 @@
 
 import Foundation
 
+/**
+ get todays day of the week in swift int value
+ eg:
+
+ `sunday = 0` and so on.
+ */
 func getTodaysDayOfTheWeekInt() -> Int {
     let calendar = Calendar.current
-    let dayOfWeek = (calendar.component(.weekday, from: Date()) + 5) % 7
+    let dayOfWeek = calendar.component(.weekday, from: Date())
     return dayOfWeek
 }
