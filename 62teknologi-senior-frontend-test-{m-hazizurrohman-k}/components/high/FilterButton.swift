@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-
+/**
+ filter button component that also holds `filter popup`
+ */
 struct FilterButton : View {
     @Binding var params : [String]
     @State var showMoreFilterSheet = false
