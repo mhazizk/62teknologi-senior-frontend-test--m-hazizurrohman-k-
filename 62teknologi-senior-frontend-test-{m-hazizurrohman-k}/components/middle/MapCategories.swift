@@ -8,11 +8,14 @@
 import Foundation
 import SwiftUI
 
+/**
+ map selected business categories into pill tags
+ */
 func MapCategories(categories:[CategoryType]) -> some View {
     return HStack(spacing: 4) {
         ForEach(categories, id: \.alias) {
             category in
-            Pill(name: category.title)
+            PillTag(name: category.title)
         }
         
     }
