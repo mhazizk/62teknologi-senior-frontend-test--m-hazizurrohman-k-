@@ -13,6 +13,9 @@ enum BaseURLOptions {
     case getBusinessReviewsById
 }
 
+/**
+ request to be passed in `URL session`
+ */
 func request(_ baseURLOptions:BaseURLOptions, params:[String], businessId:String) -> URLRequest {
     var baseURL : String = ""
     var paramsStringified : String = ""
