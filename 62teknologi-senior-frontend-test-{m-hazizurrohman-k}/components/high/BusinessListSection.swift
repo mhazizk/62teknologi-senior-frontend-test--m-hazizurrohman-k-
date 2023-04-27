@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ this component map businesses that has been searched
+ */
 struct BusinessListSection : View {
     @Binding var businesses : [BusinessType]
     var params : [String]
