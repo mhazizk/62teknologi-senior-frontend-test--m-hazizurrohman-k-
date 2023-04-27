@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ this components contains 3 part : `business hours`, `location`, `phone` and `extra hours popup`
+ */
 struct InfoDetailsSection : View {
     var business:BusinessDetailsType
     @State private var showMoreHours = false
@@ -58,15 +61,16 @@ struct InfoDetailsSection : View {
                         VStack (spacing: 4){
                             Text("Open hours").bold().padding(16)
                             VStack {
-                                ForEach(0..<6) { i in
-                                    let firstScheduleOfDay = business.hours![0].open.first(where: {$0.day == i})
+                                ForEach(0..<7) { i in
                                     let filteredSchedule = business.hours![0].open.filter({$0.day == i})
-                                    let isSameDay = getTodaysDayOfTheWeekInt() == firstScheduleOfDay?.day
-                                    if (firstScheduleOfDay != nil) {
+                                    let dayNumber = convertToSwiftWeekday(weekday: filteredSchedule[0].day)
+                                    let isSameDay = (getTodaysDayOfTheWeekInt() - 1) == dayNumber
+                                    
+                                    if !filteredSchedule.isEmpty {
                                         HStack (alignment: .center){
-                                            Text(getDayName(num:firstScheduleOfDay!.day)!).bold()
+                                            Text(getDayName(num:dayNumber)!).bold()
                                             if isSameDay && business.hours![0].is_open_now {
-                                                Pill(name: "Open", color: .green)
+                                                PillTag(name: "Open", color: .green)
                                             }
                                             Spacer()
                                             VStack (alignment:.trailing){
@@ -117,9 +121,13 @@ struct InfoDetailsSection : View {
                     }.padding(.top,8)
                 }
                 Spacer()
-                HStack {
-                    Image(systemName: "map").frame(width: 20, height: 20)
-                    Text("Map")
+                Button(action:{
+                        openMap(location: business.location?.displayAddress ?? [])
+                }){
+                    HStack {
+                        Image(systemName: "map").frame(width: 20, height: 20)
+                        Text("Map")
+                    }
                 }
                 
             }
@@ -141,11 +149,12 @@ struct InfoDetailsSection : View {
                 }
                 Spacer()
                 Button(action: {
-                    call(number: business.phone!)
+                    callPhoneNumber(number: business.phone!)
                 }) {
+                
                     HStack {
-                        Image(systemName: "phone").frame(width: 20, height: 20)
-                        Text("Call")
+                            Image(systemName: "phone").frame(width: 20, height: 20)
+                            Text("Call")
                     }
                     
                 }
