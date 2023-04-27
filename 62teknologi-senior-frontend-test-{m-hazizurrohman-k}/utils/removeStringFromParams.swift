@@ -7,7 +7,9 @@
 
 import Foundation
 
-
+/**
+ remove array of strings from query params
+ */
 func removeStringFromParams(params:[String], stringToRemove:[String]) -> [String] {
     var newParams = params
     if stringToRemove.count == 1 {
