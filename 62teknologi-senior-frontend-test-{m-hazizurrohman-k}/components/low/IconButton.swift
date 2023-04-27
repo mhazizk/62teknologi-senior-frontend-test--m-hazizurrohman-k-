@@ -13,24 +13,24 @@ enum IconName :String {
     case phone = "phone"
     case map = "map"
     case globe = "globe"
-    case menucard = "menucard"
     
 }
 
-func IconButton<Params>(iconName:IconName, onPress: @escaping (Params) -> Void) -> some View {
+/**
+ simple icon button to show on `ActionBar`
+ */
+func IconButton(iconName:IconName, onPress: @escaping () -> Void) -> some View {
     let title :String
     switch iconName {
     case .map:
         title = "Map"
     case .globe:
         title = "Website"
-    case .menucard:
-        title = "Menu"
     case .phone:
         title = "Call"
     }
     return VStack(spacing: 8) {
-        Button(action: {onPress(Params.self as! Params)}) {
+        Button(action: onPress) {
             Image(systemName: iconName.rawValue)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
