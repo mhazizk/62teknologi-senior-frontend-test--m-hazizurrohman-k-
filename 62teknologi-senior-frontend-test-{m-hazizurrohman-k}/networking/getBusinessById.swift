@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-
+/**
+ wrapper of `URL session` to get business details with provided query and params
+ */
 func getBusinessById(
     isLoading: Binding<Bool>,
 //    isFetched:Binding<Bool>,
