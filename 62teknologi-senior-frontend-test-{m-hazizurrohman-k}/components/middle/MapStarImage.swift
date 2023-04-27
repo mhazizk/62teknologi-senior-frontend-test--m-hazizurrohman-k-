@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ just turn the rating into star symbols
+ */
 func MapStarImage(rating: Double) -> some View {
     let starFilled = "star.fill"
     let starHalfFilled = "star.leadinghalf.fill"
