@@ -50,7 +50,8 @@ struct SearchScreen : View {
         if locationQuery.isEmpty {
             locationQuery = "Singapore"
         }
-        let term = "term=" + query
+        let modifiedQuery = query.replacingOccurrences(of: " ", with: "%20")
+        let term = "term=" + modifiedQuery
         let location = "location=" + locationQuery
         params = addStringToParams(params: removedLocationParams, stringToAdd: [location, term])
         searchBusiness(isLoading: $isLoading,
@@ -138,24 +139,26 @@ struct SearchScreen : View {
                                   onPressPrevious: {
                                         let currentlyShowing = showingOfTotal[0]
                                         if currentlyShowing > 20 {
-                                            let reduceOffset = currentlyShowing - 20
+                                            let reduceShowing = currentlyShowing - 20
+                                            let previousOffset = reduceShowing - 20
                                             let removeParams = removeStringFromParams(params: params, stringToRemove: ["offset="])
-                                            let newParams = addStringToParams(params: removeParams, stringToAdd: ["offset=\(reduceOffset)"])
+                                            let newParams = addStringToParams(params: removeParams, stringToAdd: ["offset=\(previousOffset)"])
                                             params = newParams
                                             onPressSearch()
-                                            showingOfTotal = [reduceOffset, showingOfTotal[1]]
+                                            showingOfTotal = [reduceShowing, showingOfTotal[1]]
                                         }
                                     },
                                   onPressNext: {
                                     let currentlyShowing = showingOfTotal[0]
                                     let totalFound = showingOfTotal[1]
                                     if currentlyShowing + 20 < totalFound {
-                                        let increaseOffset = currentlyShowing + 20
+                                        let increaseShowing = currentlyShowing + 20
+                                        let nextOffset = currentlyShowing
                                         let removeParams = removeStringFromParams(params: params, stringToRemove: ["offset="])
-                                        let newParams = addStringToParams(params: removeParams, stringToAdd: ["offset=\(increaseOffset)"])
+                                        let newParams = addStringToParams(params: removeParams, stringToAdd: ["offset=\(nextOffset)"])
                                         params = newParams
                                         onPressSearch()
-                                        showingOfTotal = [increaseOffset, showingOfTotal[1]]
+                                        showingOfTotal = [increaseShowing, showingOfTotal[1]]
                                         }
                                     }
                     )
@@ -164,7 +167,6 @@ struct SearchScreen : View {
         .onChange(of: showingOfTotal) {
             newValue in
             let initialOffset = newValue[0]
-            print([initialOffset])
             if (initialOffset == 0 && !data.isEmpty) {
                 showingOfTotal = [data.count, showingOfTotal[1]]
             }
