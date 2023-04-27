@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ this is header section of `BusinessDetailsScreen`
+ */
 func HeaderSection(distance:Double, business:BusinessDetailsType) -> some View {
     return GeometryReader {
         geometry in
@@ -32,6 +35,7 @@ func HeaderSection(distance:Double, business:BusinessDetailsType) -> some View {
             .padding(16)
     
         }
+//        .frame(height: (geometry.size.height * 0.3) + geometry.safeAreaInsets.top)
 //        .edgesIgnoringSafeArea(.top)
     }
 }
