@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-
+/**
+ simple custom search bar
+ */
 struct SearchBar : View {
     var placeholder : String
     var iconName : String
@@ -36,7 +38,7 @@ struct SearchBar : View {
                 .submitLabel(.search)
                 if location != nil {
                     ZStack {
-                        Pill(name: location! ,color: .black,font: .subheadline)
+                        PillTag(name: location! ,color: .black,font: .subheadline)
                             .padding(.trailing,16)
                     }
                 }
