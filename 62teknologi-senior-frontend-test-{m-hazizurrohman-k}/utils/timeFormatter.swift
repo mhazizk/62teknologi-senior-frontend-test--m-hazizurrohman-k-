@@ -7,7 +7,9 @@
 
 import Foundation
 
-
+/**
+ timeFormatter convert "HHmm" into "HH:mm"
+ */
 func timeFormatter(time:String) -> String {
     let inputFormatter = DateFormatter()
     inputFormatter.dateFormat = "HHmm"
