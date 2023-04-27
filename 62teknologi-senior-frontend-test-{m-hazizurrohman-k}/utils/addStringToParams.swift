@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ add array of strings into query params
+ */
 func addStringToParams(params:[String], stringToAdd:[String], avoidDuplicate:Bool = false) -> [String] {
     
     var existingParams = params
