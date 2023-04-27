@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ wrapper of `URL session` to get top 3 business reviews with provided query and params
+ */
 func getBusinessReviewsById(
     isLoading: Binding<Bool>,
     businessId: String,
