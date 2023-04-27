@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ review section showing reviews from selected business
+ */
 func ReviewSection(reviews:[ReviewType]) -> some View {
     return VStack {
         HStack {
@@ -17,7 +20,7 @@ func ReviewSection(reviews:[ReviewType]) -> some View {
         }.padding(16)
         ForEach(reviews, id: \.id) {
             review in
-            Review(review: review)
+            ReviewCard(review: review)
         }
     }
 }
