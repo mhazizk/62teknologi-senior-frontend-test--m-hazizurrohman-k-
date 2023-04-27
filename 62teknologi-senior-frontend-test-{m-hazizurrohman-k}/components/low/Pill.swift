@@ -8,7 +8,10 @@
 import Foundation
 import SwiftUI
 
-func Pill(name:String, color:Color? = nil, font:Font? = nil) -> some View {
+/**
+ simple pill styled tag text
+ */
+func PillTag(name:String, color:Color? = nil, font:Font? = nil) -> some View {
     return Text(name)
         .padding(4)
         .foregroundColor(color ?? .gray)
