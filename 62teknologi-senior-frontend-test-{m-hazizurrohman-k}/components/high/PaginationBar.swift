@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ pagination bar component showing `previous`, `next`, `page indicator`
+ */
 func PaginationBar(
     showingOfTotal : [Int],
     onPressPrevious: @escaping () -> Void,
