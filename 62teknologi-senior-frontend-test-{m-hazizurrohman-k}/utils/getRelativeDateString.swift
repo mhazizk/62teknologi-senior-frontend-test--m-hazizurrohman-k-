@@ -7,7 +7,12 @@
 
 import Foundation
 
-
+/**
+ get relative date string in human readable format
+ e.g:
+ 
+    `3 days ago`
+ */
 func getRelativeDateString(from dateString: String) -> String? {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
