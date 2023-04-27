@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ Component to show whether the business is open or closed
+ */
 func OpenSchedule(schedule:[DailyScheduleType],isOpenNow:Bool) -> some View {
     let today = getTodaysDayOfTheWeekInt()
     let todaySchedule = schedule.first(where: {$0.day == today})
@@ -17,7 +20,7 @@ func OpenSchedule(schedule:[DailyScheduleType],isOpenNow:Bool) -> some View {
     switch isOpenNow {
     case true:
         render = AnyView(HStack(spacing: 8) {
-            Pill(name: "Open", color: .green, font: .subheadline.bold())
+            PillTag(name: "Open", color: .green, font: .subheadline.bold())
             if todaySchedule != nil {
                 Text("\(timeFormatter(time:todaySchedule!.start)) - \(timeFormatter(time: todaySchedule!.end))")
                     .foregroundColor(.gray)
@@ -29,10 +32,12 @@ func OpenSchedule(schedule:[DailyScheduleType],isOpenNow:Bool) -> some View {
         break;
     case false:
         render = AnyView( HStack {
-            Pill(name: "Closed", color: .red, font: .subheadline.bold())
-            Text("Opens at \(timeFormatter(time:tomorrowSchedule!.start))")
-                .foregroundColor(.gray)
-                .font(.subheadline)
+            PillTag(name: "Closed", color: .red, font: .subheadline.bold())
+            if tomorrowSchedule != nil {
+                Text("Opens at \(timeFormatter(time:tomorrowSchedule!.start))")
+                    .foregroundColor(.gray)
+                    .font(.subheadline)
+            }
             Spacer()
         }
         )
