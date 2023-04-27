@@ -7,11 +7,14 @@
 
 import Foundation
 
+/**
+ get day name in human readable string
+ */
 func getDayName(num: Int) -> String? {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EEEE"
-    guard let date = Calendar.current.date(byAdding: .day, value: (num + 6) % 7, to: Date()) else {
-        return nil
-    }
-    return dateFormatter.string(from: date)
+  let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"]
+  let offset = num - 1
+  guard offset >= 0 && offset < weekdays.count else {
+    return nil
+  }
+  return weekdays[offset]
 }
