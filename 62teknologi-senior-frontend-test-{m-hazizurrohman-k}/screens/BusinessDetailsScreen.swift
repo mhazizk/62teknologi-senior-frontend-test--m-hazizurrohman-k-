@@ -29,6 +29,7 @@ struct BusinessDetailsScreen : View {
             } else {
                 if isDataAvailable(business: businessDetailsData, reviews: businessReviewsData) {
                     HeaderSection(distance:business.distance,business: businessDetailsData!)
+                        .frame(maxHeight: 300)
                     ScrollView(.vertical) {
                         HStack(alignment: .center,spacing: 8) {
                             Text(businessDetailsData?.price ?? "$")
