@@ -7,12 +7,22 @@
 
 import Foundation
 
-func isParamsChanged(params:[String]) -> Bool {
-    if params.count != defaultParams.count { return true }
-    if params.count == defaultParams.count {
-        let newParams = params.filter({defaultParams.contains($0)})
-        print(newParams.count)
-        if newParams.count == 0 {return false}
+/**
+ check wether the query params has changed
+ */
+func isParamsChanged(params: [String]) -> Bool {
+    let filteredDefaultParams = defaultParams.filter {
+        !$0.hasPrefix("location=") &&
+        !$0.hasPrefix("term=") &&
+        !$0.hasPrefix("offset=")
+        
     }
-    return false
+    let filteredParams = params.filter {
+        !$0.hasPrefix("location=") &&
+        !$0.hasPrefix("term=") &&
+        !$0.hasPrefix("offset=")
+        
+    }
+    print([filteredParams, filteredDefaultParams])
+        return filteredParams != filteredDefaultParams
 }
