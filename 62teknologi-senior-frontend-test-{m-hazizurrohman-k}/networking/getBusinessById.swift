@@ -13,12 +13,10 @@ import SwiftUI
  */
 func getBusinessById(
     isLoading: Binding<Bool>,
-//    isFetched:Binding<Bool>,
     businessId: String,
     data: Binding<BusinessDetailsType?>) -> Void {
         
         isLoading.wrappedValue = true
-//        isFetched.wrappedValue = false
         
         let req = request(BaseURLOptions.getBusinessById, params: [], businessId: businessId)
         
@@ -31,7 +29,6 @@ func getBusinessById(
                 print(error)
             }
         })
-//        isFetched.wrappedValue = true
         isLoading.wrappedValue = false
         
         return
