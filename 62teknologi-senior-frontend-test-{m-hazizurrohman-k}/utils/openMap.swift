@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ function to open business map
+ */
 func openMap(location: [String]) {
     let address = location.joined(separator: " ")
     guard let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
