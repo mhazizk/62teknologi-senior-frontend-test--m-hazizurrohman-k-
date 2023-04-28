@@ -130,6 +130,7 @@
 		F6A673F529FA726500F24360 /* openMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = openMap.swift; sourceTree = "<group>"; };
 		F6A673F729FA727500F24360 /* callPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = callPhoneNumber.swift; sourceTree = "<group>"; };
 		F6A673FA29FAA61100F24360 /* convertToSwiftWeekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = convertToSwiftWeekday.swift; sourceTree = "<group>"; };
+		F6A673FC29FB7FA400F24360 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F6D82DA429F2C5620013FADA /* searchBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchBusiness.swift; sourceTree = "<group>"; };
 		F6D82DA629F2C5960013FADA /* defaultParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultParams.swift; sourceTree = "<group>"; };
 		F6D82DA829F2C5F60013FADA /* urlSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = urlSessionExtension.swift; sourceTree = "<group>"; };
@@ -178,6 +179,8 @@
 		F62FC0A829EED03E00A40976 = {
 			isa = PBXGroup;
 			children = (
+				F6A673FD29FB82E900F24360 /* screenshots */,
+				F6A673FC29FB7FA400F24360 /* README.md */,
 				F62FC0B329EED03E00A40976 /* 62teknologi-senior-frontend-test-{m-hazizurrohman-k} */,
 				F62FC0C429EED04000A40976 /* 62teknologi-senior-frontend-test-{m-hazizurrohman-k}Tests */,
 				F62FC0CE29EED04000A40976 /* 62teknologi-senior-frontend-test-{m-hazizurrohman-k}UITests */,
@@ -324,6 +327,13 @@
 				F6D82DA629F2C5960013FADA /* defaultParams.swift */,
 			);
 			path = constants;
+			sourceTree = "<group>";
+		};
+		F6A673FD29FB82E900F24360 /* screenshots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = screenshots;
 			sourceTree = "<group>";
 		};
 		F6D82DB229F2F5FE0013FADA /* low */ = {
