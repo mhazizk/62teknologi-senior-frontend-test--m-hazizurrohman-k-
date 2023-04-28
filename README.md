@@ -17,7 +17,7 @@ height="150"
 
 This is a simple iOS Yelp Client built with `Swift` and `SwiftUI`
 
-This client app using public Yelp API as documented here: [Yelp API](https://docs.developer.yelp.com/reference/v3_business_search)
+This client app is using public Yelp API as documented here: [Yelp API](https://docs.developer.yelp.com/reference/v3_business_search)
 
 ### Features
 
@@ -52,6 +52,14 @@ width="200"
 >
 <img
 src="/screenshots/4.png"
+width="200"
+>
+<img
+src="/screenshots/5.png"
+width="200"
+>
+<img
+src="/screenshots/6.png"
 width="200"
 >
 
