@@ -10,14 +10,14 @@ import SwiftUI
 
 
 struct SearchScreen : View {
-    @State var showFilter = false
-    @State var params : [String] = defaultParams
-    @State var query : String = ""
-    @State var locationQuery : String = ""
-    @State var showingOfTotal : [Int] = [0,0]
-    @State var data : [BusinessType] = []
-    @State var isLoading : Bool = true
-    @State var isFetched : Bool = false
+    @State private var showFilter = false
+    @State private var params : [String] = defaultParams
+    @State private var query : String = ""
+    @State private var locationQuery : String = ""
+    @State private var showingOfTotal : [Int] = [0,0]
+    @State private var data : [BusinessType] = []
+    @State private var isLoading : Bool = true
+    @State private var isFetched : Bool = false
     @State private var expandsSearchBar = false
     @FocusState private var focus:Bool
     
@@ -51,8 +51,9 @@ struct SearchScreen : View {
             locationQuery = "Singapore"
         }
         let modifiedQuery = query.replacingOccurrences(of: " ", with: "%20")
+        let modifiedLocationQuery = locationQuery.replacingOccurrences(of: " ", with: "%20")
         let term = "term=" + modifiedQuery
-        let location = "location=" + locationQuery
+        let location = "location=" + modifiedLocationQuery
         params = addStringToParams(params: removedLocationParams, stringToAdd: [location, term])
         searchBusiness(isLoading: $isLoading,
                        isFetched: $isFetched,
