@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+/**
+ function to call business phone number
+ */
 func callPhoneNumber(number:String) -> Void {
     guard let url = URL(string: "tel:\(number)") else { return }
     return UIApplication.shared.open(url)
