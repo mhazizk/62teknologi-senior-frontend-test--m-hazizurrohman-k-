@@ -15,8 +15,6 @@ func searchBusiness(
     isLoading: Binding<Bool>,
     isFetched:Binding<Bool>,
     data: Binding<[BusinessType]>,
-//    initialOffset:Int,
-//    showingOfTotal : Binding<[Int]>,
     totalFound: Binding<Int>,
     params: [String]) -> Void {
     isLoading.wrappedValue = true
