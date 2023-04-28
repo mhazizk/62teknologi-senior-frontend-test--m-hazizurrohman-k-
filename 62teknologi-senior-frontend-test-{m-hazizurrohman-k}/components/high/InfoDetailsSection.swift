@@ -63,10 +63,10 @@ struct InfoDetailsSection : View {
                             VStack {
                                 ForEach(0..<7) { i in
                                     let filteredSchedule = business.hours![0].open.filter({$0.day == i})
-                                    let dayNumber = convertToSwiftWeekday(weekday: filteredSchedule[0].day)
-                                    let isSameDay = (getTodaysDayOfTheWeekInt() - 1) == dayNumber
                                     
                                     if !filteredSchedule.isEmpty {
+                                        let dayNumber = convertToSwiftWeekday(weekday: filteredSchedule[0].day)
+                                        let isSameDay = (getTodaysDayOfTheWeekInt() - 1) == dayNumber
                                         HStack (alignment: .center){
                                             Text(getDayName(num:dayNumber)!).bold()
                                             if isSameDay && business.hours![0].is_open_now {
