@@ -23,6 +23,5 @@ func isParamsChanged(params: [String]) -> Bool {
         !$0.hasPrefix("offset=")
         
     }
-    print([filteredParams, filteredDefaultParams])
         return filteredParams != filteredDefaultParams
 }
