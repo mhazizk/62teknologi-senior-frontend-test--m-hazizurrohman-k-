@@ -13,9 +13,9 @@ func isDataAvailable(business:BusinessDetailsType?, reviews: BusinessReviewsType
 }
 
 struct BusinessDetailsScreen : View {
-    @State var isLoading : Bool = false
-    @State var businessDetailsData : BusinessDetailsType? = nil
-    @State var businessReviewsData : BusinessReviewsType? = nil
+    @State private var isLoading : Bool = false
+    @State private var businessDetailsData : BusinessDetailsType? = nil
+    @State private var businessReviewsData : BusinessReviewsType? = nil
     var business : BusinessType
     
     
