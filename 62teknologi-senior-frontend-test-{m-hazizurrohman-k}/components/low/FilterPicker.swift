@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-
+/**
+ popup picker to show options
+ */
 struct FilterPicker : View {
     let title:String
     let options:[String:String]
@@ -23,6 +25,7 @@ struct FilterPicker : View {
                     Text(key).tag(value)
                 }
             }
+            .tint(.red)
             .pickerStyle(.menu)
             }
             
