@@ -11,7 +11,7 @@ import SwiftUI
 struct _2teknologi_senior_frontend_test__m_hazizurrohman_k_App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootNavigation()
         }
     }
 }
