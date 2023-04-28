@@ -42,7 +42,6 @@
 		F6A673E829F6874B00F24360 /* OpenSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673E729F6874B00F24360 /* OpenSchedule.swift */; };
 		F6A673EA29F6880E00F24360 /* hoursType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673E929F6880E00F24360 /* hoursType.swift */; };
 		F6A673EC29F6888F00F24360 /* dailyScheduleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673EB29F6888F00F24360 /* dailyScheduleType.swift */; };
-		F6A673EE29F68A2B00F24360 /* isBusinessOpen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673ED29F68A2B00F24360 /* isBusinessOpen.swift */; };
 		F6A673F029F68C6E00F24360 /* timeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673EF29F68C6E00F24360 /* timeFormatter.swift */; };
 		F6A673F229F6E17E00F24360 /* getDayName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673F129F6E17D00F24360 /* getDayName.swift */; };
 		F6A673F429F98D0F00F24360 /* PaginationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A673F329F98D0F00F24360 /* PaginationBar.swift */; };
@@ -125,7 +124,6 @@
 		F6A673E729F6874B00F24360 /* OpenSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSchedule.swift; sourceTree = "<group>"; };
 		F6A673E929F6880E00F24360 /* hoursType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hoursType.swift; sourceTree = "<group>"; };
 		F6A673EB29F6888F00F24360 /* dailyScheduleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailyScheduleType.swift; sourceTree = "<group>"; };
-		F6A673ED29F68A2B00F24360 /* isBusinessOpen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = isBusinessOpen.swift; sourceTree = "<group>"; };
 		F6A673EF29F68C6E00F24360 /* timeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeFormatter.swift; sourceTree = "<group>"; };
 		F6A673F129F6E17D00F24360 /* getDayName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getDayName.swift; sourceTree = "<group>"; };
 		F6A673F329F98D0F00F24360 /* PaginationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationBar.swift; sourceTree = "<group>"; };
@@ -267,7 +265,6 @@
 				F647EAB729F2BDC5000C69A8 /* isParamsChanged.swift */,
 				F6D82DCD29F590140013FADA /* getRelativeDateString.swift */,
 				F6A673E529F685C000F24360 /* getTodaysDayOfTheWeekInt.swift */,
-				F6A673ED29F68A2B00F24360 /* isBusinessOpen.swift */,
 				F6A673EF29F68C6E00F24360 /* timeFormatter.swift */,
 				F6A673F129F6E17D00F24360 /* getDayName.swift */,
 				F6A673F529FA726500F24360 /* openMap.swift */,
@@ -512,7 +509,6 @@
 				F62FC10129EFD68000A40976 /* photoDetailType.swift in Sources */,
 				F62FC0E629EED0C700A40976 /* AboutScreen.swift in Sources */,
 				F6D82DAF29F2EC480013FADA /* HeaderSection.swift in Sources */,
-				F6A673EE29F68A2B00F24360 /* isBusinessOpen.swift in Sources */,
 				F62FC0B529EED03E00A40976 /* _2teknologi_senior_frontend_test__m_hazizurrohman_k_App.swift in Sources */,
 				F6D82DB129F2F58D0013FADA /* PillTag.swift in Sources */,
 				F6D82DC329F581510013FADA /* reviewType.swift in Sources */,
