@@ -11,7 +11,7 @@ import Foundation
  get todays day of the week in swift int value
  eg:
 
- `sunday = 0` and so on.
+ `sunday = 1` and so on.
  */
 func getTodaysDayOfTheWeekInt() -> Int {
     let calendar = Calendar.current
