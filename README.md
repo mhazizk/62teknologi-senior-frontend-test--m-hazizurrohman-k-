@@ -13,6 +13,8 @@ height="150"
 
 </div>
 
+---
+
 ### Summary
 
 This is a simple iOS Yelp Client built with `Swift` and `SwiftUI`
