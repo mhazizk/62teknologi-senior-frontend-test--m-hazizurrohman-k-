@@ -7,7 +7,9 @@ width="150"
 height="150"
 >
 
-## Simple iOS Yelp Client
+## iYelp
+
+### Simple iOS Yelp Client
 
 </div>
 
